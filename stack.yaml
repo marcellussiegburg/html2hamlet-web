@@ -1,0 +1,6 @@
+resolver: lts-15.15
+packages:
+- .
+extra-deps:
+- hamlet-1.2.0@sha256:1b009261b10b6100ec4cd89fb780f1c4dbed5dc70009247e8f2fbabb5dc7c34c,1573
+- optparse-declarative-0.3.0@sha256:12d6a258b528e66fadf9d040447523b2a4ed376bed5e557a94e8148e9fba8c2b,953

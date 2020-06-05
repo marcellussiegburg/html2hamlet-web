@@ -1,0 +1,44 @@
+<div .masthead>
+  <div .container>
+    <div .row>
+      <h1 .header>
+        HTML2Hamlet
+      <p>
+        To install locally see
+        <a href="https://github.com/tanakh/html2hamlet">
+          the original project
+<div .container>
+  <div .bs-docs-section>
+    <div .row>
+      <div .col-lg-12>
+        <h1>
+          Upload HTML file
+    <div .row>
+      <div .col-lg-12>
+        <div .bs-callout .bs-callout-info .well>
+          <form .form-horizontal method=post action=@{HomeR}#forms enctype=#{formEnctype}>
+            ^{formWidget}
+            <button .btn .btn-primary type="submit">
+              Upload code
+    $maybe hamlet <- submission
+      <div .row>
+        <div .col-lg-12>
+          <div .bs-callout .bs-callout-info>
+            <code .upload-response>
+              #{hamlet}
+    $nothing
+  <hr>
+  <div .bs-docs-section>
+    <div .row>
+      <div .col-lg-12>
+        <h1>
+          Paste HTML code
+    <div .row>
+      <div .col-lg-12>
+        <div .bs-callout .bs-callout-info .well>
+          <form .form-horizontal ##{codeFormId}>
+            <div .field>
+              <textarea rows="10" ##{codeTextareaId} placeholder="Your code here..." required></textarea>
+            <button .btn .btn-primary type=submit>
+               Submit code
+      <div ##{codeListId}>

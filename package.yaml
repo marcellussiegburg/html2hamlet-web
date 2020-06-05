@@ -1,0 +1,98 @@
+name:    html2hamlet-web
+version: "0.0.0"
+
+dependencies:
+- aeson >=1.4 && <1.5
+- base >=4.9.1.0 && <5
+- bytestring >=0.10 && <0.11
+- case-insensitive
+- classy-prelude >=1.5 && <1.6
+- classy-prelude-conduit >=1.5 && <1.6
+- classy-prelude-yesod >=1.5 && <1.6
+- conduit >=1.0 && <2.0
+- containers
+- data-default
+- directory >=1.1 && <1.4
+- extra
+- fast-logger >=2.2 && <3.1
+- file-embed
+- foreign-store
+- hamlet
+- hjsmin >=0.1 && <0.3
+- html-conduit
+- http-client-tls >=0.3 && <0.4
+- http-conduit >=2.3 && <2.4
+- monad-control >=0.3 && <1.1
+- monad-logger >=0.3 && <0.4
+- mtl
+- optparse-declarative
+- regex-tdfa
+- safe
+- shakespeare >=2.0 && <2.1
+- template-haskell
+- text >=0.11 && <2.0
+- time
+- unordered-containers
+- vector
+- wai
+- wai-extra >=3.0 && <3.1
+- wai-logger >=2.2 && <2.4
+- warp >=3.0 && <3.4
+- wl-pprint-text
+- xml-conduit
+- yaml >=0.11 && <0.12
+- yesod >=1.6 && <1.7
+- yesod-core >=1.6 && <1.7
+- yesod-form >=1.6 && <1.7
+- yesod-static >=1.6 && <1.7
+
+library:
+  source-dirs: src
+  when:
+  - condition: (flag(dev)) || (flag(library-only))
+    then:
+      ghc-options:
+      - -Wall
+      - -fwarn-tabs
+      - -O0
+      cpp-options: -DDEVELOPMENT
+    else:
+      ghc-options:
+      - -Wall
+      - -fwarn-tabs
+      - -O2
+
+executables:
+  html2hamlet-web:
+    main: main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - html2hamlet-web
+    when:
+    - condition: flag(library-only)
+      buildable: false
+
+tests:
+  html2hamlet-web-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options: -Wall
+    dependencies:
+    - html2hamlet-web
+    - hspec >=2.0.0
+    - yesod-test
+
+# Define flags used by "yesod devel" to make compilation faster
+flags:
+  library-only:
+    description: Build for use with "yesod devel"
+    manual: false
+    default: false
+  dev:
+    description: Turn on development settings, like auto-reload templates.
+    manual: false
+    default: false

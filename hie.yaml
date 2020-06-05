@@ -1,0 +1,10 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "html2hamlet-web:lib"
+
+    - path: "./app"
+      component: "html2hamlet-web:exe:html2hamlet-web"
+
+    - path: "./test"
+      component: "html2hamlet-web:test:html2hamlet-web-test"

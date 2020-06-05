@@ -1,0 +1,15 @@
+h2##{aDomId} {
+  color: #990
+}
+
+code {
+  display: block;
+  white-space: pre-wrap
+}
+
+##{codeTextareaId} {
+  width: 100%;
+  height: 100px;
+  max-width: 100%;
+  min-width: 100%;
+}
